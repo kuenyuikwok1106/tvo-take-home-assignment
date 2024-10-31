@@ -43,7 +43,6 @@ type TCity = {
     sunset: number;
     country: string;
   }
-
 }
 
 const fetcher = async (arr: number[]): Promise<TCity> => {
