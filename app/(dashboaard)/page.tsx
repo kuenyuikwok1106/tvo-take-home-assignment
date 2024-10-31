@@ -121,9 +121,9 @@ export default function Page() {
                 <TableBody>
                   {
                     Object.values(cityList).length
-                      ? (Object.values(cityList).map((place) => (
+                      ? (Object.values(cityList).map((place, index) => (
                         <TableRow
-                          key={place.name}
+                          key={`place.name-${index}`}
                           sx={{
                             '&:last-child td, &:last-child th': { border: 0 },
                             '&:hover': {
