@@ -1,10 +1,15 @@
 import { AppProvider } from '@toolpad/core';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import GroupsIcon from '@mui/icons-material/Groups';
-import BusinessIcon from '@mui/icons-material/Business';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Image from 'next/image';
 
-export const NAVIGATION = [];
+export const NAVIGATION = [
+  {
+    segment: 'appreciation',
+    title: 'Appreciation',
+    icon: <FavoriteIcon />,
+  },  
+];
 
 export const BRANDING = {
   title: '',
@@ -13,7 +18,6 @@ export const BRANDING = {
     alt="TVO logo"
     height={38}
     width={150}
-
   />
 }
 
