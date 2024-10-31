@@ -23,7 +23,7 @@ export default function Map({
                 minHeight: '300px',
             }}
             center={{ lat, lng }}
-            zoom={10}
+            zoom={13}
         >
         </GoogleMap>
     )
