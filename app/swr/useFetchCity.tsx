@@ -48,9 +48,8 @@ type TCity = {
 const fetcher = async (arr: number[]): Promise<TCity> => {
   const [lat, lon] = arr;
   const res = await axios.get(
-    `
-    https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.NEXT_PUBLIC_OPEN_MAP_API as string}
-    `
+    '/api/cities',
+    { params: { lat, lon } }
   )
   return res.data
 }
