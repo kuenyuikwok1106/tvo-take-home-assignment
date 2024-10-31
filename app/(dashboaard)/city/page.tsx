@@ -1,7 +1,7 @@
 'use client';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import SpeedIcon from '@mui/icons-material/Speed';
-import { capitalize, styled, Typography, TypographyProps } from "@mui/material";
+import { capitalize, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { notFound, useSearchParams } from "next/navigation";
@@ -9,13 +9,7 @@ import { useMemo } from "react";
 import CircularLoader from "../../components/CircularLoader/CircularLoader";
 import useFetchCity from "../../swr/useFetchCity";
 import Map from "./Map";
-
-
-const VerticalCenterTypography = styled(Typography)<TypographyProps>(() => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-}));
+import VerticalCenterTypography from '../../components/VerticalCenterTypography/VerticalCenterTypography';
 
 export default function Page() {
     const searchParams = useSearchParams();

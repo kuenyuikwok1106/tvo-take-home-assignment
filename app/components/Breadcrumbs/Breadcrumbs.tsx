@@ -2,36 +2,25 @@
 
 import Box from '@mui/material/Box';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
+import VerticalCenterTypography from '../VerticalCenterTypography/VerticalCenterTypography';
 
 export default function GlobalBreadcrumbs() {
+    const router = useRouter();
     const paths = usePathname().split('/').filter( path => path );
-    const [open, setOpen] = React.useState(false);
-    const createButton = React.useCallback(() => {
-        if(paths.length === 1) {
-            switch(paths[0]) {
-                case ('companies'): {
-                    return (<Button variant='outlined' onClick={() => setOpen(true)}>Create Companies</Button>)
-                }
-                case ('customers'): {
-                    return (<Button variant='outlined' onClick={() => setOpen(true)}>Create Customers</Button>)
-                }
-                default: {
-                    return (<></>)
-                }
-            }
-        }
-        return (<></>);
-    }, [paths])
 
     return (
         <Box mb={2}>
             <Stack mb={1} direction="row" justifyContent="space-between" alignItems="center">
+                <VerticalCenterTypography clickable onClick={() => router.back()}>
+                    <ArrowBackIcon />
+                    Go Back
+                </VerticalCenterTypography>
                 <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 1 }}>
                     <Link underline="hover" color="inherit" href="/">
                         Dashboard
@@ -50,7 +39,6 @@ export default function GlobalBreadcrumbs() {
                         ))
                     }
                 </Breadcrumbs>
-                {createButton()}
             </Stack>
             <Divider />
         </Box>
