@@ -6,7 +6,7 @@ interface StyledTypographtProps extends TypographyProps {
 }
 
 const VerticalCenterTypography = styled(Typography, {
-    shouldForwardProp: (prop) => prop !== 'success',
+    shouldForwardProp: (prop) => prop !== 'clickable',
   })<StyledTypographtProps>(({ clickable }) => ({
     display: 'flex',
     justifyContent: 'center',

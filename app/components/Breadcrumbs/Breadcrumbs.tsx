@@ -14,10 +14,16 @@ export default function GlobalBreadcrumbs() {
     const router = useRouter();
     const paths = usePathname().split('/').filter( path => path );
 
+    const isRoot = paths.length === 0;
+    const handleClick = () => {
+        if(isRoot) return;
+        else router.back()
+    }
+
     return (
         <Box mb={2}>
             <Stack mb={1} direction="row" justifyContent="space-between" alignItems="center">
-                <VerticalCenterTypography clickable onClick={() => router.back()}>
+                <VerticalCenterTypography clickable={true} onClick={handleClick}>
                     <ArrowBackIcon />
                     Go Back
                 </VerticalCenterTypography>
